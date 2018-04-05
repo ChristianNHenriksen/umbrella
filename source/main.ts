@@ -1,5 +1,6 @@
 import { Server } from "./server";
-import { BuildRouter, BuildRule } from "./build/index";
+import { BuildRouter } from "./build/build.router";
+import { BuildRule } from "./build/build.rule";
 import { CommandService } from "../source/command/command.service";
 
 const commandService = new CommandService();
