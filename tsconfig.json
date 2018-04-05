@@ -5,7 +5,6 @@
         "alwaysStrict": true,
         "target": "es5",
         "lib": ["es5", "es6", "dom"],
-        "baseUrl": "./"
     },
     "include": [
         "source/**/*",
