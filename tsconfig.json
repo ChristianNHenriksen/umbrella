@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "build/",
+        "outDir": "out/",
         "noImplicitAny": true,
         "alwaysStrict": true,
         "target": "es5",

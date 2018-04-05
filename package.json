@@ -4,11 +4,11 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "clean": "rm -rf build",
+    "clean": "rm -rf out",
     "prebuild": "npm run clean",
     "build": "tsc",
-    "smoke": "mocha build/test/**/*.spec.js",
-    "start": "node build/source/main.js"
+    "smoke": "mocha out/test/**/*.spec.js",
+    "start": "node out/source/main.js"
   },
   "repository": {
     "type": "git",
