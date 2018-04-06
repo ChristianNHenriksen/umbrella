@@ -5,6 +5,7 @@ At the moment the server only support cloud hosted bitbucket repositories.
 
 ### Pipeline
 Projects using umbrella have to include a pipeline.sh file in the project root.
+
 The pipeline.sh file should define the pipeline and will be executed on every git push events.
 
 ### Setup
