@@ -9,7 +9,11 @@ At the moment the server only support cloud hosted bitbucket repositories.
 3. Start the umbrella server.
   
 ### Run server
+```
 npm run build && npm run start <port>
-  
+```
+
 ### Run tests
+```
 npm run build && npm run smoke
+```
