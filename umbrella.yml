@@ -1,6 +1,7 @@
 ---
 - hosts: build-server
   roles:
+    - nginx
     - forever
 
   tasks:

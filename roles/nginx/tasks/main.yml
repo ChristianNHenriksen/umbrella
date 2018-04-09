@@ -1,0 +1,17 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Transfer nginx configuration
+  copy:
+    src: ./default
+    dest: /etc/nginx/sites-available/default
+    force: yes
+
+- name: Restart nginx
+  systemd:
+    name: nginx
+    state: restarted
