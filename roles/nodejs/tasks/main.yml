@@ -1,0 +1,16 @@
+---
+- name: Install the gpg key for nodejs LTS
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
+
+- name: Install the nodejs 9 LTS repository
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_9.x {{ ansible_distribution_release }} main"
+    state: present
+    update_cache: yes
+
+- name: Install nodejs
+  apt:
+    name: nodejs
+    state: present

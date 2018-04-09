@@ -1,0 +1,6 @@
+[build-server]
+1.1.1.100
+
+[all:vars]
+ansible_user=root
+ansible_python_interpreter="python3"

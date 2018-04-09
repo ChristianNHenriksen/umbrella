@@ -1,0 +1,41 @@
+---
+- hosts: build-server
+  roles:
+    - forever
+
+  tasks:
+    - name: Ensures umbrella dir exists
+      file:
+        path: /umbrella
+        state: directory
+
+    - name: Copy files
+      copy: src={{ item.src }} dest={{ item.dest }}
+      with_items:
+        - { src: 'source', dest: "/umbrella" }
+        - { src: 'test', dest: "/umbrella" }
+        - { src: 'package.json', dest: "/umbrella" }
+        - { src: 'tsconfig.json', dest: "/umbrella" }
+
+    - name: Intall npm packages
+      npm:
+        path: /umbrella
+
+    - name: Build the umbrella server
+      command: npm run build
+      args:
+        chdir: /umbrella
+
+    - name: Run smoke tests
+      command: npm run smoke
+      args:
+        chdir: /umbrella
+
+    - name: Check list of Node.js apps running
+      command: forever list
+      register: forever_list
+      changed_when: false
+
+    - name: Start the umbrella server
+      command: forever start /umbrella/out/source/main.js 8080
+      when: "forever_list.stdout.find('/umbrella/out/source/main.js') == -1"
