@@ -14,6 +14,13 @@ The pipeline.sh file should define the pipeline and will be executed on every gi
 2. Add a webhook triggered by a repository push for URL: <example.com/build-server ip>:<port>/builds
 3. Start the umbrella server.
   
+
+### Setup using Ansible
+1. Update the hosts file to reflect your build server(s)
+2. Run ansible-playbook umbrella.yml
+
+The server files will be places at /umbrella/* and the server will run on port 8080.
+
 ### Run server
 ```
 npm run build && npm run start <port>
