@@ -11,7 +11,7 @@ export class CommandService {
     }
 
     removeDirectory(path: string) {
-        rmdirSync(path);
+        execSync(`rm -rf ${path}`)
     }
 
     executeCommand(command: string): string {
